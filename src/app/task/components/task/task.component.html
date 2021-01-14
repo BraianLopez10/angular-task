@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <mat-card-header class="card__header">
+    {{task.title}}
+  </mat-card-header>
+  <mat-card-content class="card__content">
+    {{task.content}}
+  </mat-card-content>
+  <mat-card-actions class="card__actions">
+    <button  mat-raised-button>Editar</button>
+    <button (click)="clickDelete()" mat-raised-button color="warn">Borrar</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <div class="toggle">
+      <mat-slide-toggle 
+        [checked]="task.done"
+        (change)="event($event)"
+      >
+      <span>
+        {{message}}
+      </span>
+      </mat-slide-toggle>
+    </div>
+  </mat-card-footer>
+</mat-card>

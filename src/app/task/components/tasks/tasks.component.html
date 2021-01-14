@@ -1,0 +1,7 @@
+<div class="wrap">
+  <h1>Tareas</h1>
+  <button mat-raised-button routerLink="/create" style="margin:10px 0 " color="accent">Añadir Tarea</button>
+  <div class="wrap-tareas">
+    <app-task (delete) = "deleteProd($event)" *ngFor="let task of tasks" [task]="task"></app-task>
+  </div>
+</div>

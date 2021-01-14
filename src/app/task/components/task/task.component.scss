@@ -1,0 +1,19 @@
+.card {
+  max-width: 300px;
+  &__header {
+    background-color: bisque;
+    padding: 10px;
+    font-weight: bold;
+  }
+  &__content{
+    min-height: 150px;
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+  }
+}
+.toggle {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
