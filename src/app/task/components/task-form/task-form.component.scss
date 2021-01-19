@@ -1,9 +1,11 @@
-.wrap-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.wrap-form {
+  height: 300px;
+  width: 370px;
+  .mat-card {
+    height: 100%;
+  }
 }
-.group-form{
+.group-form {
   display: flex;
   flex-direction: column;
 }

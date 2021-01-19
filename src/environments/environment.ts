@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URI: 'https://api-task-test.herokuapp.com/api'
+  URI: 'http://localhost:3000/api'
 };
 
 /*

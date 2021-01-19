@@ -11,13 +11,21 @@ export class TasksComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
   tasks: Task[] = []
+  mostrarForm: boolean = false
+
   ngOnInit(): void {
     this.taskService.getAll()
       .subscribe((tasks) => {
         this.tasks = tasks.data
       })
   }
-  deleteProd(event) {
+  deleteTask(event) {
     this.tasks = this.tasks.filter((t) => t._id !== event)
+  }
+  addTask (data) {
+    this.tasks.push(data.data)
+  }
+  mostrarFormulario() {
+    this.mostrarForm = !this.mostrarForm
   }
 }

@@ -5,6 +5,12 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .wrap {
-  width: 96%;
-  padding: 2%;
+  width: 100%;
+  padding: 0;
+}
+@media screen and (min-width:420px) {
+  .wrap{ 
+    width: 96%;
+    padding: 2%;
+  }
 }

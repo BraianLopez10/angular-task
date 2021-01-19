@@ -1,24 +1,39 @@
-<mat-card class="card">
-  <mat-card-header class="card__header">
-    {{task.title}}
-  </mat-card-header>
-  <mat-card-content class="card__content">
-    {{task.content}}
-  </mat-card-content>
-  <mat-card-actions class="card__actions">
-    <button  mat-raised-button>Editar</button>
-    <button (click)="clickDelete()" mat-raised-button color="warn">Borrar</button>
-  </mat-card-actions>
-  <mat-card-footer>
-    <div class="toggle">
-      <mat-slide-toggle 
-        [checked]="task.done"
-        (change)="event($event)"
-      >
-      <span>
-        {{message}}
-      </span>
-      </mat-slide-toggle>
-    </div>
-  </mat-card-footer>
-</mat-card>
+<div *ngIf="!stateEdit">
+  <mat-card class="card">
+    <mat-card-content class="card__content">
+      <div>
+        <h2>
+          {{ task.title }}
+          <span style="color: grey; font-size: 13px">{{
+            task.createdAt | date
+          }}</span>
+        </h2>
+      </div>
+      <p>
+        {{ task.content }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="card__actions">
+      <div class="span-left">
+        <button mat-stroked-button (click)="delete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="changeEdit()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div class="span-right">
+        <button mat-stroked-button (click)="changeStatus()">
+          <mat-icon *ngIf="!task.done">done</mat-icon>
+          <mat-icon *ngIf="task.done">clear</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div *ngIf="stateEdit">
+  <app-task-edit
+    (eventClose)="cancelEdit($event)"
+    [task]="task"
+  ></app-task-edit>
+</div>

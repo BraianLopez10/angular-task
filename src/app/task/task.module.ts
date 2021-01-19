@@ -7,10 +7,11 @@ import { TaskComponent } from './components/task/task.component';
 import { MaterialModule } from '../material/material.module';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskEditComponent } from './components/task-edit/task-edit.component';
 
 
 @NgModule({
-  declarations: [TasksComponent, TaskComponent, TaskFormComponent],
+  declarations: [TasksComponent, TaskComponent, TaskFormComponent, TaskEditComponent],
   imports: [
     MaterialModule,
     CommonModule,

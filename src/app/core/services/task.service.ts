@@ -24,4 +24,8 @@ export class TaskService {
   delete(id: string) {
     return this.httpClient.delete<any>(`${environment.URI}/task/${id}`)
   }
+  create(task) {
+    const newTask = this.httpClient.post(`${environment.URI}/task`, task)
+    return newTask
+  }
 }

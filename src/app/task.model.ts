@@ -2,7 +2,6 @@ export interface Task {
   _id: string,
   title: string,
   content: string,
-  created_at: string,
   done: boolean,
   createdAt: Date,
   updatedAt: Date,

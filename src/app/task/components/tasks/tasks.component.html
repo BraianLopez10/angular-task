@@ -1,7 +1,34 @@
-<div class="wrap">
-  <h1>Tareas</h1>
-  <button mat-raised-button routerLink="/create" style="margin:10px 0 " color="accent">Añadir Tarea</button>
-  <div class="wrap-tareas">
-    <app-task (delete) = "deleteProd($event)" *ngFor="let task of tasks" [task]="task"></app-task>
+<div class="wrap-tareas">
+  <div class="wrap-form">
+    <app-task-form (eventAddTask)="addTask($event)"></app-task-form>
+  </div>
+  <div class="tareas_column tareas_incomplete">
+    <h3>Pendientes</h3>
+    <div class="wrap-column">
+      <div
+        *ngFor="let task of tasks"
+        [ngClass]="{ 'task-vibrate': !task.done }"
+      >
+        <div class="show">
+          <app-task
+            (onDelete)="deleteTask($event)"
+            [task]="task"
+            *ngIf="!task.done"
+          ></app-task>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tareas_column tareas_complete">
+    <h3>Completadas</h3>
+    <div *ngFor="let task of tasks" [ngClass]="{ 'task-vibrate': task.done }">
+      <div class="show">
+        <app-task
+          (onDelete)="deleteTask($event)"
+          [task]="task"
+          *ngIf="task.done"
+        ></app-task>
+      </div>
+    </div>
   </div>
 </div>

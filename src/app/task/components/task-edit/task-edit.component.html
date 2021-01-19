@@ -1,0 +1,44 @@
+<div *ngIf="stateEdit">
+  <mat-card class="card">
+    <form (ngSubmit)="save($event)" [formGroup]="Formulario">
+      <mat-card-content class="card__content">
+        <div class="card__main">
+          <mat-form-field>
+            <input
+              formControlName="title"
+              required
+              matInput
+              placeholder="Titulo"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <textarea
+              rows="5"
+              maxlength="140"
+              formControlName="content"
+              required
+              matInput
+              placeholder="Tarea"
+            >
+            </textarea>
+          </mat-form-field>
+        </div>
+        <div class="card__option">
+          <div class="span-left">
+            <button mat-stroked-button type="button" (click)="close()">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </div>
+          <div class="span-right">
+            <button mat-stroked-button type="submit">
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>
+<div *ngIf="!stateEdit">
+  <app-task [task]="task"></app-task>
+</div>
